@@ -9,6 +9,8 @@ import Studie from "@/components/projects/Studie";
 import FormBuilder from "@/components/projects/FormBuilder";
 import TwitchStats from "@/components/projects/TwitchStats";
 import Inkwell from "@/components/projects/Inkwell";
+import SGHDBResales from "@/components/projects/SGHDBResales";
+import ComingSoon from "@/components/projects/ComingSoon";
 
 function Projects() {
     const [mousePosition, setMousePosition] = useState<{ x: number, y: number }>({ x: 0, y: 0 });
@@ -41,6 +43,10 @@ function Projects() {
                     <div className="w-full flex gap-8 max-lg:flex-col">
                         <TwitchStats />
                         <Inkwell />
+                    </div>
+                    <div className="w-full flex gap-8 max-lg:flex-col">
+                        <SGHDBResales />
+                        <ComingSoon />
                     </div>
                 </div>
             </div>
