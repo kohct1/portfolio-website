@@ -1,113 +1,143 @@
-import Image from "next/image";
+"use client"
 
-export default function Home() {
+// react
+import { useState, useEffect, useRef } from "react";
+
+// next
+import Link from "next/link";
+
+// framer
+import { motion } from "framer-motion";
+
+// components
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import MouseEffect from "@/components/MouseEffect";
+import NextjsSkill from "@/components/skills/NextjsSkill";
+import ReactSkill from "@/components/skills/ReactSkill";
+import NodejsSkill from "@/components/skills/NodejsSkill";
+import PythonSkill from "@/components/skills/PythonSkill";
+import JavaSkill from "@/components/skills/JavaSkill";
+import MySQLSkill from "@/components/skills/MySQLSkill";
+import JavaScriptSkill from "@/components/skills/JavaScriptSkill";
+import TypeScriptSkill from "@/components/skills/TypeScriptSkill";
+import HTMLSkill from "@/components/skills/HTMLSkill";
+import CSSSkill from "@/components/skills/CSSSkill";
+import FirebaseSkill from "@/components/skills/FirebaseSkill";
+import CsSkill from "@/components/skills/CsSkill";
+import CppSkill from "@/components/skills/CppSkill";
+import TailwindCSSSkill from "@/components/skills/TailwindCSSSkill";
+import FramerMotionSkill from "@/components/skills/FramerMotionSkill";
+import ExpressjsSkill from "@/components/skills/ExpressjsSkill";
+import NgeeAnnPolytechnic from "@/components/education/NgeeAnnPolytechnic";
+import WestSpringSecondarySchool from "@/components/education/WestSpringSecondarySchool";
+import Sections from "@/components/Sections";
+
+function Home() {
+  const [mousePosition, setMousePosition] = useState<MousePosition>({ x: window.innerWidth / 2, y: window.innerHeight / 2 });
+  const [scrollPosition, setScrollPosition] = useState<number>(0);
+  const [isAbout, setIsAbout] = useState<boolean>(false);
+  const [isEducation, setIsEducation] = useState<boolean>(false);
+  const [isSkills, setIsSkills] = useState<boolean>(false);
+  const divRef = useRef<HTMLDivElement>(null);
+  const educationAnchorRef = useRef<HTMLAnchorElement>(null);
+  const skillsAnchorRef = useRef<HTMLAnchorElement>(null);
+
+  function handleMouseMove(e: React.MouseEvent<HTMLDivElement>): void {
+      if (!divRef.current) return;
+      const div: HTMLDivElement = divRef.current;
+      const rect: DOMRect = div.getBoundingClientRect();
+      setMousePosition({ x: e.clientX - rect.left - 128, y: e.clientY - rect.top - 64 });
+  }
+
+  function handleScroll(): void {
+    setScrollPosition(document.documentElement.scrollTop);
+  }
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+  }, [])
+
+  useEffect(() => {    
+    if (educationAnchorRef.current && scrollPosition < educationAnchorRef.current.getBoundingClientRect().top + window.scrollY) {
+      setIsAbout(true);
+      setIsEducation(false);
+      setIsSkills(false);
+    } else if (educationAnchorRef.current && skillsAnchorRef.current && scrollPosition >= educationAnchorRef.current.getBoundingClientRect().top + window.scrollY && scrollPosition < skillsAnchorRef.current.getBoundingClientRect().top + window.scrollY) {
+      setIsAbout(false);
+      setIsEducation(true);
+      setIsSkills(false);
+    } else if (skillsAnchorRef.current && scrollPosition >= skillsAnchorRef.current.getBoundingClientRect().top + window.scrollY) {
+      setIsAbout(false);
+      setIsEducation(false);
+      setIsSkills(true);
+    }
+  }, [scrollPosition])
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <div className="w-full h-full flex bg-black" ref={divRef} onMouseMove={handleMouseMove}>
+      <MouseEffect mousePosition={mousePosition} />
+      <div className="w-full h-full flex flex-col items-center">
+        <div className="w-5/6 h-screen flex flex-col justify-center items-center pb-14 gap-8">
+          <h1 className="text-8xl text-white text-center font-semibold max-lg:text-6xl">{"<kohchinteck />"}</h1>
+          <p className="text-xl text-white text-center max-lg:text-base">An aspiring software developer passionate about creating good products</p>
+        </div>
+        <div className="w-2/3 flex justify-center max-lg:w-5/6 max-lg:flex-col">
+          <div className="w-1/2 h-fit flex flex-col sticky top-0 pt-28 gap-4 max-lg:w-full max-lg:static">
+            <h1 className="text-6xl text-white font-semibold max-lg:text-4xl">Koh Chin Teck</h1>
+            <p className="text-xl text-white max-lg:text-base">Year 2 Information Technology Student</p>
+            <Sections isAbout={isAbout} isEducation={isEducation} isSkills={isSkills} />
+          </div>
+          <div className="w-1/2 flex flex-col max-lg:w-full">
+            <div className="flex flex-col gap-8 max-lg:gap-0">
+              <a className="text-3xl text-white font-semibold px-8 pt-28 max-lg:text-2xl max-lg:px-0 max-lg:pt-14" id="about">About</a>
+              <Card className="flex justify-between items-center bg-black border-black ease-in-out duration-300 px-8 py-6 hover:bg-primary/90 max-lg:px-0 max-lg:py-4 max-lg:hover:bg-black">
+                <p className="text-white max-lg:text-sm">As a dedicated Information Technology student with a strong foundation in software development, I am highly self-motivated and driven by an insatiable thirst for knowledge. I continually strive to improve my skills through both study and hands-on practice, always seeking new ways to better myself and stay ahead in the ever-evolving tech landscape.</p>
+              </Card>
+            </div>
+            <div className="flex flex-col gap-8 max-lg:gap-4">
+              <a className="text-3xl text-white font-semibold px-8 pt-28 max-lg:text-2xl max-lg:px-0 max-lg:pt-14" id="education" ref={educationAnchorRef}>Education</a>
+              <NgeeAnnPolytechnic />
+              <WestSpringSecondarySchool />
+            </div>
+            <div className="flex flex-col gap-8 max-lg:gap-2">
+              <a className="text-3xl text-white font-semibold px-8 pt-28 max-lg:text-2xl max-lg:px-0 max-lg:pt-14" id="skills" ref={skillsAnchorRef}>Skills</a>
+              <NextjsSkill />
+              <ReactSkill />
+              <TailwindCSSSkill />
+              <FramerMotionSkill />
+              <JavaScriptSkill />
+              <TypeScriptSkill />
+              <HTMLSkill />
+              <CSSSkill />
+              <NodejsSkill />
+              <ExpressjsSkill />
+              <FirebaseSkill />
+              <CppSkill />
+              <CsSkill />
+              <JavaSkill />
+              <PythonSkill />
+              <MySQLSkill />
+            </div>
+          </div>
+        </div>
+        <div className="w-2/3 flex flex-col items-center mt-64 gap-12 max-lg:w-5/6 max-lg:mt-16">
+          <div className="flex flex-col items-center gap-4">
+            <h1 className="text-6xl text-white text-center font-semibold max-lg:text-4xl">Talk is cheap. Show me the code.</h1>
+            <p className="text-xl text-white max-lg:text-base">- Linus Torvalds</p>
+          </div>
+          <Link href="/projects"><Button className="bg-black text-white">{"Projects ->"}</Button></Link>
         </div>
       </div>
-
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+    </div>
   );
 }
+
+export default Home
