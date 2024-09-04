@@ -41,7 +41,7 @@ import WestSpringSecondarySchool from "@/components/education/WestSpringSecondar
 import Sections from "@/components/Sections";
 
 function Home() {
-  const [mousePosition, setMousePosition] = useState<MousePosition>({ x: window.innerWidth / 2, y: window.innerHeight / 2 });
+  const [mousePosition, setMousePosition] = useState<MousePosition>({ x: 0, y: 0 });
   const [scrollPosition, setScrollPosition] = useState<number>(0);
   const [isAbout, setIsAbout] = useState<boolean>(false);
   const [isEducation, setIsEducation] = useState<boolean>(false);
@@ -63,6 +63,7 @@ function Home() {
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
+    setMousePosition({ x: window.innerWidth / 2, y: window.innerHeight / 2 });
   }, [])
 
   useEffect(() => {    
