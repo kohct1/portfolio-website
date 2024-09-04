@@ -18,7 +18,10 @@ function TwitchStats() {
             <Card className="grid grid-cols-1 bg-primary/90 border-black overflow-hidden px-8">
                 <CardHeader className="flex flex-col justify-between row-start-1 col-start-1 px-0 pb-0 gap-2">
                     <div className="flex flex-col gap-2">
-                        <CardTitle className="text-5xl text-white max-lg:text-2xl">TwitchStats</CardTitle>
+                        <div className="flex items-center gap-4">
+                            <CardTitle className="text-5xl text-white max-lg:text-2xl">TwitchStats</CardTitle>
+                            <motion.a href="https://fakeqwek.github.io/FEDAssignment2/" target="_blank" whileHover={{ scale: 1.2 }}><svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path className="stroke-pink-400" d="M15.197 3.35462C16.8703 1.67483 19.4476 1.53865 20.9536 3.05046C22.4596 4.56228 22.3239 7.14956 20.6506 8.82935L18.2268 11.2626M10.0464 14C8.54044 12.4882 8.67609 9.90087 10.3494 8.22108L12.5 6.06212" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/><path className="stroke-white" d="M13.9536 10C15.4596 11.5118 15.3239 14.0991 13.6506 15.7789L11.2268 18.2121L8.80299 20.6454C7.12969 22.3252 4.55237 22.4613 3.0464 20.9495C1.54043 19.4377 1.67609 16.8504 3.34939 15.1706L5.77323 12.7373" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/></svg></motion.a>
+                        </div>
                         <p className="w-2/5 text-xl text-white max-lg:text-sm">A statistics tracker for the streaming website Twitch</p>
                     </div>
                     <CardFooter className="flex items-end row-start-1 col-start-1 px-0 gap-4 z-10">
