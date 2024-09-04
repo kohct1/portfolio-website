@@ -17,7 +17,7 @@ function WestSpringSecondarySchool() {
                 <CardTitle className="text-white max-lg:text-xl">West Spring Secondary School</CardTitle>
             </CardHeader>
             <CardContent className="pr-0 max-lg:pl-0">
-                <p className="text-white max-lg:text-sm">I attended West Spring Secondary School in Singapore, where I achieved strong academic results with an L1R5 score of 8 and an L1R4 score of 6 in my GCE O-Level examinations. My academic efforts were recognized with the Edusave Scholarship Award from the Ministry of Education from 2019 to 2021, and the Edusave Merit Bursary in 2022. Beyond academics, I took on leadership roles, serving as an Assistant Sergeant Major and Warren Officer in the National Civil Defence Cadet Corps from 2021 to 2022, where I was actively involved from 2019. I also served as Class Chairperson from 2019 to 2020, contributing to my class and school community.</p>
+                <p className="text-white max-lg:text-sm">I attended West Spring Secondary School in Singapore, where I achieved strong academic results with an L1R5 score of 8 and an L1R4 score of 4 in my GCE O-Level examinations. My academic efforts were recognized with the Edusave Scholarship Award from the Ministry of Education from 2019 to 2021, and the Edusave Merit Bursary in 2022. Beyond academics, I took on leadership roles, serving as an Assistant Sergeant Major and Warren Officer in the National Civil Defence Cadet Corps from 2021 to 2022, where I was actively involved from 2019. I also served as Class Chairperson from 2019 to 2020, contributing to my class and school community.</p>
             </CardContent>
             </div>
         </Card>
