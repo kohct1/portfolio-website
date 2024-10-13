@@ -3,6 +3,9 @@
 // react
 import { useState, useEffect, useRef } from "react";
 
+// framer
+import { motion } from "framer-motion";
+
 // components
 import MouseEffect from "@/components/MouseEffect";
 import Studie from "@/components/projects/Studie";
@@ -31,10 +34,10 @@ function Projects() {
         <div className="w-full h-full flex bg-black" ref={divRef} onMouseMove={handleMouseMove}>
             <MouseEffect mousePosition={mousePosition} />
             <div className="w-full h-full flex flex-col items-center">
-                <div className="w-5/6 h-full flex flex-col justify-center items-center gap-8">
+                <motion.div className="w-5/6 h-full flex flex-col justify-center items-center gap-8" initial={{ opacity: 0 }} animate={{ opacity: 100 }}>
                     <h1 className="text-8xl text-white text-center font-semibold max-lg:text-6xl">Projects</h1>
                     <p className="text-xl text-white max-lg:text-base">Explore my work: from ideas to execution</p>
-                </div>
+                </motion.div>
                 <div className="w-5/6 flex flex-col gap-8">
                     <div className="w-full flex gap-8 max-lg:flex-col">
                         <Studie />

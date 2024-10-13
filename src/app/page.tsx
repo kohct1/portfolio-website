@@ -86,10 +86,14 @@ function Home() {
     <div className="w-full h-full flex bg-black" ref={divRef} onMouseMove={handleMouseMove}>
       <MouseEffect mousePosition={mousePosition} />
       <div className="w-full h-full flex flex-col items-center">
-        <div className="w-5/6 h-screen flex flex-col justify-center items-center pb-14 gap-8">
-          <h1 className="text-8xl text-white text-center font-semibold max-lg:text-6xl max-md:text-4xl">{"<kohchinteck />"}</h1>
+        <motion.div className="w-5/6 h-screen flex flex-col justify-center items-center pb-14 gap-8" initial={{ opacity: 0 }} animate={{ opacity: 100 }}>
+          <motion.div className="flex" whileHover="hover">
+            <motion.h1 className="text-8xl text-white text-center font-semibold max-lg:text-6xl max-md:text-4xl" variants={{ hover: { x: -32 } }}>{"<"}</motion.h1>
+            <h1 className="text-8xl text-white text-center font-semibold mr-8 max-lg:text-6xl max-md:text-4xl">kohchinteck</h1>
+            <motion.h1 className="text-8xl text-white text-center font-semibold max-lg:text-6xl max-md:text-4xl" variants={{ hover: { x: 32 } }}>{"/>"}</motion.h1>
+          </motion.div>
           <p className="text-xl text-white text-center max-lg:text-base">An aspiring software developer passionate about creating good products</p>
-        </div>
+        </motion.div>
         <div className="w-2/3 flex justify-center max-lg:w-5/6 max-lg:flex-col">
           <div className="w-1/2 h-fit flex flex-col sticky top-0 pt-28 gap-4 max-lg:w-full max-lg:static">
             <h1 className="text-6xl text-white font-semibold max-lg:text-4xl">Koh Chin Teck</h1>

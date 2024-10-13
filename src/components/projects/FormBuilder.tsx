@@ -14,7 +14,7 @@ import {
 
 function FormBuilder() {
     return (
-        <motion.div className="w-1/2 h-fit max-lg:w-full" whileHover="hover">
+        <motion.div className="w-1/2 h-fit max-lg:w-full" initial={{ x: "20%", opacity: 0 }} animate={{ x: 0, opacity: 100 }} whileHover="hover">
             <Card className="grid grid-cols-1 bg-primary/90 border-black overflow-hidden px-8">
                 <CardHeader className="flex flex-col justify-between row-start-1 col-start-1 px-0 pb-0 gap-2">
                     <div className="flex flex-col gap-2">
