@@ -29,7 +29,7 @@ function Navbar() {
                 <div className="flex gap-4 max-lg:hidden">
                     <Link href="/"><Button className="bg-black">Home</Button></Link>
                     <Link href="/projects"><Button className="bg-black">Projects</Button></Link>
-                    <Link href="/koh-chin-teck-resume.pdf"><Button className="bg-black">Resume</Button></Link>
+                    <Link href="/kohchinteck-resume.pdf"><Button className="bg-black">Resume</Button></Link>
                 </div>
                 <div className="flex items-center lg:hidden">
                     <Sheet>
@@ -39,7 +39,7 @@ function Navbar() {
                                 <SheetTitle className="text-white ml-4">{"<kohchinteck />"}</SheetTitle>
                                 <Link href="/"><Button className="bg-black">Home</Button></Link>
                                 <Link href="/projects"><Button className="bg-black">Projects</Button></Link>
-                                <Link href="/koh-chin-teck-resume.pdf"><Button className="bg-black">Resume</Button></Link>
+                                <Link href="/kohchinteck-resume.pdf"><Button className="bg-black">Resume</Button></Link>
                             </SheetHeader>
                         </SheetContent>
                     </Sheet>
