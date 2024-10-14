@@ -138,7 +138,7 @@ function Home() {
             <h1 className="text-6xl text-white text-center font-semibold max-lg:text-4xl">Talk is cheap. Show me the code.</h1>
             <p className="text-xl text-white max-lg:text-base">- Linus Torvalds</p>
           </div>
-          <Link href="/projects"><Button className="bg-black text-white">{"Projects ->"}</Button></Link>
+          <Link href="/projects"><Button className="bg-black text-white">{"Go to Projects ->"}</Button></Link>
         </div>
       </div>
     </div>

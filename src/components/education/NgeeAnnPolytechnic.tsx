@@ -16,7 +16,7 @@ function NgeeAnnPolytechnic() {
                     <CardTitle className="text-white max-lg:text-xl">Ngee Ann Polytechnic</CardTitle>
                 </CardHeader>
                     <CardContent className="pr-0 max-lg:pl-0">
-                    <p className="text-white max-lg:text-sm">I am currently pursuing a Diploma in Information Technology at Ngee Ann Polytechnic, where I have achieved a cumulative GPA of 3.92. My academic excellence has been recognized with a place on the Director&apos;s List for the academic year 2023/2024. Outside of academics, I am actively involved in student life as a member of Overflow and NullSec, contributing to both communities and enhancing my overall experience at the polytechnic.</p>
+                    <p className="text-white max-lg:text-sm">I’m currently pursuing a Diploma in Information Technology at Ngee Ann Polytechnic, with a cumulative GPA of 3.92. I was honored to be placed on the Director’s List for the academic year 2023/2024. Outside of academics, I actively contribute to student life as a member of both Overflow and NullSec, enriching my experience at the polytechnic.</p>
                 </CardContent>
             </div>
         </Card>
